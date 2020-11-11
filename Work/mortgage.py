@@ -20,14 +20,16 @@ while principal > 0:
     else:
         payment = normal_payment
 
+    principal = principal * (1+rate/12) 
+    
     if principal < payment:
-        payment = principal
-        
-    principal = principal * (1+rate/12) - payment
+        payment = principal    
+
+    principal = principal - payment
     total_paid = total_paid + payment
     months = months + 1
 
-    print(months, total_paid, principal)
+    print(f"Month: {months} -- Paid: {total_paid} -- Left: {principal}")
 
 print('Total paid:', total_paid)
 print('Months:', months)
